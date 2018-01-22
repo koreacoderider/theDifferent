@@ -58,6 +58,7 @@ input[type=submit], button {
 }
 
 .section_email_box2_email {
+	margin-right: 1rem;
 	line-height:2.5;
 	font-size: 0.7rem;
 	width: 50%;
@@ -77,6 +78,15 @@ input[type=submit], button {
 	flex-wrap: wrap;
 	align-content:space-around;
 }
+	
+.section_year {
+	margin-left: 15%;
+	display: flex;
+	align-items: center;
+	color: black;
+    	cursor: pointer;
+	font-size: 1.8rem;
+}	
 
 .section_detail_box1 {
 	margin-left: 15%;
@@ -337,7 +347,7 @@ input[type=submit], button {
   			<div class="section_email_box2">
   				<p class="section_email_box2_company">더 다른 여행</p>
   				<form name="subscriptionFrom" id="" method="post" action="subscriptionAction" style="margin-top:3%;">
-					<input type="text" name="sub_email" placeholder=" 이메일" class="section_email_box2_email">
+					<input type="text" name="sub_email" id="tomail" placeholder=" 이메일" class="section_email_box2_email">
 					<input type="submit" class="section_email_box2_button" value="구독"/>
 				</form>
 				
@@ -346,7 +356,11 @@ input[type=submit], button {
 				
 				<script>
 					$(function(){
-						alert('1');
+						//alert('1');
+						var action = "subscription";
+						var tomail = $("#tomail").val();
+						var wname = '';
+						
 					});
 				</script>				
 				
@@ -394,8 +408,20 @@ input[type=submit], button {
 	</section>
 	<!-- 스크롤1: 이메일입력구독 끝 -->
 	
+	
+	
+	<script>
+		$(function(){
+							
+		});
+	</script>
+	
+	
 	<!-- 스크롤2: 판매중인 상품페이지 시작-->
 	<section class="section section_detail">
+		<div class="section_year">
+			2018년
+		</div>
 		<div class="section_detail_box1">
 			<a style="font-weight:bold;">1월</a>
 			<a style="">2월</a>
