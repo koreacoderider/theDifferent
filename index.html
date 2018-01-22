@@ -346,21 +346,33 @@ input[type=submit], button {
   			<div class="section_email_box1"></div>
   			<div class="section_email_box2">
   				<p class="section_email_box2_company">더 다른 여행</p>
-  				<form name="subscriptionFrom" id="" method="post" action="subscriptionAction" style="margin-top:3%;">
-					<input type="text" name="sub_email" id="tomail" placeholder=" 이메일" class="section_email_box2_email">
-					<input type="submit" class="section_email_box2_button" value="구독"/>
+  				<form name="subscriptionForm" id="subscriptionForm" method="post" action="subscriptionAction" style="margin-top:3%;">
+					<input type="text" name="sub_email" id="subscriptionMail" placeholder=" 이메일" class="section_email_box2_email">
+					<input type="submit" id="subscription_btn" class="section_email_box2_button" value="구독"/>
 				</form>
 				
 				
 				
 				
 				<script>
-					$(function(){
-						//alert('1');
-						var action = "subscription";
-						var tomail = $("#tomail").val();
-						var wname = '';
+					$("#subscription_btn").click(function(){
+						//var formData = $("#subscriptionForm").serialize();
+						var subscriptionMail = $("#subscriptionMail").val();
 						
+						$.ajax({
+							type: "POST",
+							url: "http://www.shandongpass.com/theDifferent/emailAndSms/emailAndSms.asp",
+							cache: false,
+							data: subscriptionMail,
+							success: function(data){
+								alert("1");
+								alert(data);
+							},
+							error: function(data){
+								alert("2");
+								alert(data);
+							}
+						});
 					});
 				</script>				
 				
