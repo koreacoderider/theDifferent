@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
@@ -14,13 +14,13 @@
 <meta property="og:url" content="http://www.thedifferenttravel.com/thedifferent/index.html">
 <title>더 디퍼런트 트래블  | THE DIFFERENT TRAVEL</title>
 <!-- favicon부여 -->	
-<link rel="icon" href="./resource/img/the.ico" type="image/x-icon">
+<link rel="icon" href="http://www.thedifferenttravel.com/resource/img/the.ico" type="image/x-icon">
 <!-- 스타일 시작-->
 <!-- fontawesome -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- 웹브라우저 호환성 -->
-<link rel="stylesheet" href="./resource/css/normalize.css" />
-<link rel="stylesheet" href="./resource/css/main.css" />
+<link rel="stylesheet" href="http://www.thedifferenttravel.com/resource/css/normalize.css" />
+<link rel="stylesheet" href="http://www.thedifferenttravel.com/resource/css/main.css" />
 <!-- 폰트 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
 <!-- 스타일 종료-->
@@ -28,13 +28,19 @@
 * {
   font-family: 'Kanit', Regular;
 }
-
-input[type=submit], button {
+input[type=button], button {
 	background-color:black;
 	color:white;
 	border:0px;
 	line-height:2.5;
 	cursor:pointer;
+	outline:none;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
+    background-color: rgb(255,255,255) !important;
+    background-image: none;
+    color: rgb(255,255,255) !important;
 }
 
 .section_email {
@@ -43,7 +49,6 @@ input[type=submit], button {
 	align-items:center;
 	justify-content:center;
 }
-
 .section_email_box1{
 	flex:1;
 }
@@ -51,12 +56,10 @@ input[type=submit], button {
 	flex:2;
 	margin-left: -5%;
 }
-
 .section_email_box2_company {
 	font-size: 1rem;
 	font-weight:bold;
 }
-
 .section_email_box2_email {
 	margin-right: 1rem;
 	line-height:2.5;
@@ -65,14 +68,14 @@ input[type=submit], button {
 	border:0px;
 	border-bottom: 0.5px solid;
 }
-
+.section_email_box2_email:focus{
+	outline:none;
+}
 .section_email_box2_button {
 	line-height: 2.5;
 	font-size: 0.7rem;
 	width: 25%;
 }
-
-
 .section_detail {
 	display:flex; 
 	flex-wrap: wrap;
@@ -84,26 +87,23 @@ input[type=submit], button {
 	display: flex;
 	align-items: center;
 	color: black;
-    	cursor: pointer;
+    	cursor: default;
 	font-size: 1.8rem;
 }	
-
 .section_detail_box1 {
 	margin-left: 15%;
-	margin-top: 10%;
+	margin-top: 3%;
 	display: flex;
 	align-items: center;
+	
 }
-
 .section_detail_box1 a {
 	margin-right:5%;
 	color:black;
 	text-decoration:none;
-	cursor:pointer;
-	font-size: 0.8rem; 
+	cursor:default;
+	font-size: 1rem; 
 }
-
-
 .section_detail_box2_1 {
 	margin-left:15%;
 	margin-top:7%; 
@@ -111,7 +111,6 @@ input[type=submit], button {
 	display: flex; 
 	justify-content:space-between;
 }
-
 .section_detail_box2_2 {
 	margin-left:15%;
 	margin-top:10%; 
@@ -119,11 +118,14 @@ input[type=submit], button {
 	display: flex; 
 	justify-content:space-between;
 }
-
 .section_detail_box2_3 { 
-	display:none;
+	/*display:none;*/
+	margin-left:15%;
+	margin-top:8%; 
+	margin-right:15%; 
+	display:flex;
+	justify-content:space-between;
 }
-
 .section_detail_box2_item {
 	font-size:0.9rem;
 	line-height:1.3;
@@ -133,7 +135,6 @@ input[type=submit], button {
 	margin-left:15%;
 	margin-top:7%;
 }
-
 .section_detail_box3  a{
 	position:absolute;
 	right:15%;
@@ -141,24 +142,20 @@ input[type=submit], button {
 	text-decoration:none;
 	cursor:pointer;
 }
-
 .section_footer {
 	 display:flex;
 	 align-items:center;
 	 justify-content:center;
 	 flex-direction:column;
 }
-
 .section_footer_box1 {
 	margin-top: 4%;
 	margin-right:3%;
 	text-align: center;
 }
-
 .section_footer_box2 {
 	margin-top: 4%;
 }
-
 .section_footer_box1_left1 {
 	font-weight:bold;
 	font-size:1.5rem;
@@ -169,11 +166,9 @@ input[type=submit], button {
 	font-size:0.8rem;
 	line-height: 0.8;
 }
-
 .section_footer_box2_right1 {
 	line-height: 2;
 }
-
 .section_footer_box2_right1 a{
 	margin-right:3%;
 	color:black;
@@ -181,17 +176,13 @@ input[type=submit], button {
 	cursor:pointer;
 	font-size:0.7rem;
 }
-
 .section_footer_box2_right2 {
 	margin-top: 5%;
 }
-
 .section_footer_box2_right2 p{
 	font-size:0.5rem;
 	line-height: 10%;
 }
-
-
 /* 태블릿용 CSS */
 @media all and (min-width:768px){
 /* 기본 CSS */
@@ -199,37 +190,29 @@ input[type=submit], button {
 	font-size: 1.5rem;
 	font-weight:bold;
 }
-
 .section_email_box2_email {
 	line-height:2.5;
 	width: 45%;
 	font-size: 0.8rem;
 }
-
-
 .section_email_box2_button {
 	line-height: 2.5;
 	width: 15%;
 	font-size: 0.8rem;
 }
-
 .section_detail_box1 a {
 	margin-right:5%;
 	color:black;
 	text-decoration:none;
-	cursor:pointer;
-	font-size: 1rem; 
+	cursor:default;
+	font-size: 1.2rem; 
 }
-
-
 .section_detail_box2_1 { 
 	display:none;
 }
-
 .section_detail_box2_2 { 
 	display:none;
 }
-
 .section_detail_box2_3 {
 	margin-left:15%;
 	margin-top:8%; 
@@ -237,44 +220,34 @@ input[type=submit], button {
 	display:flex;
 	justify-content:space-between;	
 }
-
 .section_detail_box2_item {
 	font-size:1.2rem;
 	line-height:1.3;
 	width:40%;
 }
-
 .section_footer {
 	flex-direction:row;
 }
-
 .section_footer_box1_left1 {
 	font-size: 2rem;
 }
-
 .section_footer_box2_right1 a{
 	font-size:0.8rem;
 }
-
 .section_footer_box2_right2 {
 	margin-top: 8%;
 }
-
 .section_footer_box2_right2 p{
 	font-size:0.7rem;
 }
-
 }
-
 /* PC용 CSS */
 @media all and (min-width:960px){
 /* 기본 CSS */
-
 .section_email_box2_company {
 	font-size: 2rem;
 	font-weight:bold;
 }
-
 .section_email_box2_email {
 	line-height:2.5;
 	font-size: 1.0rem;
@@ -282,35 +255,28 @@ input[type=submit], button {
 	border:0px;
 	border-bottom: 0.5px solid;
 }
-
 .section_email_box2_button {
 	line-height: 2.5;
 	font-size: 0.9rem;
 	width: 15%;
 }
-
 .section_detail_box2_item {
 	font-size:1.2rem;
 	line-height:1.3;
 	width:40%;
 }
-
 .section_detail_box2_3 {
 	margin-top:6%; 
 }
-
 .section_footer_box1_left1 {
 	font-size: 2.3rem;
 }
-
 .section_footer_box2_right1 a{
 	font-size:1rem;
 }
-
 .section_footer_box2_right2 {
 	margin-top: 10%;
 }
-
 .section_footer_box2_right2 p{
 	font-size:0.9rem;
 }
@@ -323,18 +289,100 @@ input[type=submit], button {
 	3. fullpage: 페이지스크롤링
 -->
 <!-- 1. jquery -->
-<script type="text/javascript" src="./resource/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://www.thedifferenttravel.com/resource/js/jquery-3.2.1.min.js"></script>
 <!-- 2. modernizr: 검사도구 -->
 <!--<script type="text/javascript" src="./js/modernizr-custom.js"></script>-->
 <!-- 3. fullpage: 페이지스크롤링 -->
-<link rel="stylesheet" type="text/css" href="http://shandongpass.com/theDifferent/resource/css/jquery.fullPage.css" />
-<script type="text/javascript" src="http://shandongpass.com/theDifferent/resource/js/jquery.fullPage.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://www.thedifferenttravel.com/resource/css/jquery.fullpage.css" />
+<script type="text/javascript" src="http://www.thedifferenttravel.com/resource/js/jquery.fullpage.js"></script>
 <!-- jquery 플러그인 끝-->
+<!-- ip 확인 -->
+<script type="text/javascript" src="http://jsgetip.appspot.com"></script>
+
 <script>
 	$(function(){
 		//alert("시작!");
+		//alert(ip());
+		$("#ip").val(ip());
+		//fullpage슬라이드 기능 시작
 		$('#fullpage').fullpage();
+		
+		//구독신청시 이메일 유효성 검사 시작
+		$('#subscription_btn').click(function(){
+			clickedEvent();
+    	});
+		//구독신청시 이메일 유효성 검사 끝
+		
+		$("#subscription_btn").keyup(function(event) {
+  			// Enter 처리
+  			if (event.keyCode == '13') {
+    			//$("subscription_btn").trigger("click");
+  				clickedEvent();
+  			};
+		});
 	});
+	
+	function clickedEvent(){
+		var subscriptionMail = $("#subscriptionMail");
+		//alert(subscriptionMail.val());
+       	// 정규식 - 이메일 유효성 검사
+       	var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+       	
+       	if( !subscriptionMail.val() ){
+           	alert('이메일주소를 입력 해 주세요');
+           	subscriptionMail.focus();
+           	return false;
+           	
+       	}else{
+           	if(!regEmail.test(subscriptionMail.val())) {
+               	alert('이메일 주소가 유효하지 않습니다');
+               	subscriptionMail.val('');
+               	subscriptionMail.focus();
+               	return false;
+           	}
+           	sendEmailAjax();
+       	}
+	}
+	
+	function sendEmailAjax(){
+	
+		//alert("sendEmailAjax 작동!");
+		var formData = $("#subscriptionForm").serialize();
+		var subscriptionMail = $("#subscriptionMail").val();
+		
+		//alert(formData);
+		//$.post("http://www.shandongpass.com/theDifferent/emailAndSms/email.asp", formData);
+		
+		$.ajax({
+				url: "http://www.shandongpass.com/theDifferent/emailAndSms/email.asp",
+				type: "POST",
+				cache: false,
+				//data: subscriptionMail,
+				data: formData,
+			success: function(data){
+				//alert(data);
+				//var result = $(data).find("#result");
+				//alert(result);
+				if(data == '0'){
+					alert("구독신청이 완료되었습니다.");
+					subscriptionMail.val('');
+					subscriptionMail.focus();
+					return;
+				}else if(data == '1'){
+					alert("이미 구독신청하신 이메일입니다.");
+					subscriptionMail.val('');
+					subscriptionMail.focus();
+					return;
+				}				
+			},
+			error: function(request,status,error){
+        		alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
+			}
+		});
+
+	}		
 </script>
 </head>
 <body>
@@ -346,88 +394,174 @@ input[type=submit], button {
   			<div class="section_email_box1"></div>
   			<div class="section_email_box2">
   				<p class="section_email_box2_company">더 다른 여행</p>
-  				<form name="subscriptionForm" id="subscriptionForm" method="post" action="subscriptionAction" style="margin-top:3%;">
-					<input type="text" name="sub_email" id="subscriptionMail" placeholder=" 이메일" class="section_email_box2_email">
-					<input type="submit" id="subscription_btn" class="section_email_box2_button" value="구독"/>
-				</form>
-				
-				
-				
-				
-				<script>
-					$("#subscription_btn").click(function(){
-						//var formData = $("#subscriptionForm").serialize();
-						var subscriptionMail = $("#subscriptionMail").val();
-						
-						$.ajax({
-							type: "POST",
-							url: "http://www.shandongpass.com/theDifferent/emailAndSms/emailAndSms.asp",
-							cache: false,
-							data: subscriptionMail,
-							success: function(data){
-								alert("1");
-								alert(data);
-							},
-							error: function(data){
-								alert("2");
-								alert(data);
-							}
-						});
-					});
-				</script>				
-				
-				
-<form name="frm" method="post" action="http://www.shandongpass.com/theDifferent/emailAndSms/emailAndSms.asp">
-<input type="hidden" name="action" value="go">
-<input type="hidden" name="ridx" value="ridx0000">
-<input type="hidden" name="tomail" value="sophia@rplay.co.kr">
-<input type="hidden" name="wname" value="">
-<input type="hidden" name="frommail" value="shandongpass@rplay.co.kr">
-<input type="hidden" name="totel" value="010-2048-5695">
-<!--	
-<input type="hidden" name="msg" value="shandongpass 입니다. 요청하신 예약내용 금액확인되어 입금요청서 발송하였습니다.  마이페이지 > 예약현황에서 확인 부탁드립니다">
-<input type="hidden" name="msg2" value="shandongpass 입니다. 입금요청서 보내드립니다.">	
--->
-<input type="hidden" name="msg" value="theDifferent 입니다.  구독신청을 확인했습니다.">
-<input type="hidden" name="msg2" value="theDifferent 입니다.  구독신청 문자를 보내드립니다.">
-<input type="hidden" name="mail_content" value="<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'><html lang='ko'>	<head>	<title></title>		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />		<meta http-equiv='X-UA-Compatible' content='IE=edge' />	</head><body><div id='wrap' style='width:700px;margin:0 auto;'>	<img src='http://shandongpass.com/mail/img/deposit_txt.gif' alt='' usemap='#Map' border='0' />	<map name='Map' id='Map'><area shape='rect' coords='14,48,194,98' href='http://shandongpass.com/' target='_blank' /></map>	<table cellpadding=0 cellspacing=0 border='0' style='width:100%;font-size:12px;line-height:18px;border-top:3px solid black'>		<tbody>			<td style='background-color:#f6f6f6;padding:15px;' >			<div style='height:30px;font-size:14px'>안녕하세요. <span style='color:#00a2ff;'></span> 님 </div>			산동여행의 새로운 길을 열어가는 산동패스입니다.<br />예약 주문 하신 내용에 대하여 아래와 같이 입금 요청서를 드리오니, 꼼꼼하게 체크하여 주시기 바랍니다.			</td>		</tbody>	</table>	<p style='font-size:16px;margin:30px 0 10px 0;font-weight:bold;font-family:Arial'>Pass</p>	<table cellpadding=0 cellspacing=0 border='0' style='width:100%;font-size:12px;line-height:18px;border-top:3px solid black;color:#575757;'>		<colgroup>			<col width='100px' />			<col width='340px' />			<col width='60px' />			<col width='100px' />			<col width='100px' />		</colgroup>		<thead>			<tr>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>이미지</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>상품정보</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>이용인원</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>단가</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>예상금액</th>			</tr>		</thead>		<tbody>		<tr>			<td style='padding:10px 0;text-align:center'>&nbsp;</td>			<td style='padding:10px 0 10px 10px;'><br /><br /><span style='color:#fb8e00;'></span>			</td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>명</td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>0원 <br /></td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>0원 <br /></td>		</tr>		<tr>			<td style='background-color:#e5e5e5;padding:12px 0 12px 20px;text-align:left;'><span style='float: left;padding: 0 5px 0 0;'><img src='http://shandongpass.com/mail/img/deposit_blut01.gif' alt='' align='absmiddle'></span>Remark</th>			<td colspan='4' style='background-color:#f6f6f6;padding:12px 0 12px 20px;'></td>		</tr>		</tbody>	</table>	<p style='font-size:16px;margin:30px 0 10px 0;font-weight:bold;font-family:Arial'>Hotel</p>	<table cellpadding=0 cellspacing=0 border='0' style='width:100%;font-size:12px;line-height:18px;border-top:3px solid black;color:#575757;'>		<colgroup>			<col width='100px' />			<col width='340px' />			<col width='60px' />			<col width='100px' />			<col width='100px' />		</colgroup>		<thead>			<tr>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>이미지</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>상품정보</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>이용인원</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>단가</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>예상금액</th>			</tr>		</thead>		<tbody>		<tr>			<td style='padding:10px 0;text-align:center'>&nbsp;</td>			<td style='padding:10px 0 10px 10px;'><br /><br /><span style='color:#fb8e00;'> </span>			</td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>명</td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>0원 <br /></td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>0원 <br /></td>		</tr>		<tr>			<td style='background-color:#e5e5e5;padding:12px 0 12px 20px;text-align:left;'><span style='float: left;padding: 0 5px 0 0;'><img src='http://shandongpass.com/mail/img/deposit_blut01.gif' alt='' align='absmiddle'></span>Remark</th>			<td colspan='4' style='background-color:#f6f6f6;padding:12px 0 12px 20px;'></td>		</tr>		</tbody>	</table>	<p style='font-size:16px;margin:30px 0 10px 0;font-weight:bold;font-family:Arial'>Tour</p>	<table cellpadding=0 cellspacing=0 border='0' style='width:100%;font-size:12px;line-height:18px;border-top:3px solid black;color:#575757;'>		<colgroup>			<col width='100px' />			<col width='340px' />			<col width='60px' />			<col width='100px' />			<col width='100px' />		</colgroup>		<thead>			<tr>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>이미지</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>상품정보</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>이용인원</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>단가</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>예상금액</th>			</tr>		</thead>		<tbody>		<tr>			<td style='padding:10px 0;text-align:center'>&nbsp;</td>			<td style='padding:10px 0 10px 10px;'><br /><br /><span style='color:#fb8e00;'> </span>			</td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>명</td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>0원 <br /></td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>0원 <br /></td>		</tr>		<tr>			<td style='background-color:#e5e5e5;padding:12px 0 12px 20px;text-align:left;'><span style='float: left;padding: 0 5px 0 0;'><img src='http://shandongpass.com/mail/img/deposit_blut01.gif' alt='' align='absmiddle'></span>Remark</th>			<td colspan='4' style='background-color:#f6f6f6;padding:12px 0 12px 20px;'></td>		</tr>		</tbody>	</table>	<p style='font-size:16px;margin:30px 0 10px 0;font-weight:bold;font-family:Arial'>Combo</p>	<table cellpadding=0 cellspacing=0 border='0' style='width:100%;font-size:12px;line-height:18px;border-top:3px solid black;color:#575757;'>		<colgroup>			<col width='100px' />			<col width='340px' />			<col width='60px' />			<col width='100px' />			<col width='100px' />		</colgroup>		<thead>			<tr>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>이미지</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>상품정보</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>이용인원</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>단가</th>				<th scope='col' style='border-bottom:1px solid #b5b5b5;text-align:center;padding:10px 0;color:#575757;background-color:#f6f6f6'>예상금액</th>			</tr>		</thead>		<tbody>		<tr>			<td style='padding:10px 0;text-align:center'>&nbsp;</td>			<td style='padding:10px 0 10px 10px;'><br /><br /><span style='color:#fb8e00;'> </span>			</td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>명</td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>0원 <br /></td>			<td style='padding:10px 0;text-align:center;font-weight:bold'>0원 <br /></td>		</tr>		<tr>			<td style='background-color:#e5e5e5;padding:12px 0 12px 20px;text-align:left;'><span style='float: left;padding: 0 5px 0 0;'><img src='http://shandongpass.com/mail/img/deposit_blut01.gif' alt='' align='absmiddle'></span>Remark</th>			<td colspan='4' style='background-color:#f6f6f6;padding:12px 0 12px 20px;'></td>		</tr>		</tbody>	</table>	<table cellpadding=0 cellspacing=0 border='0' style='margin-top:50px;width:100%;font-size:12px;line-height:18px;border-top:3px solid black;color:#575757;'>		<colgroup>			<col width='140px' />			<col width='*' />		</colgroup>		<tbody>		<tr>			<th style='background-color:#dddddd;padding:12px 0 12px 20px;text-align:left;'><span style='float: left;padding: 0 5px 0 0;'><img src='http://shandongpass.com/mail/img/deposit_blut01.gif' alt='' align='absmiddle'></span>총 결제 금액</th>			<td style='background-color:#ededed;padding:12px 0 12px 20px;'>총 개의 상품<br />총 <span style='color:#ae0b0b;font-weight:bold'>0원</span> 입니다.</td>		</tr>		<tr>			<th style='background-color:#e5e5e5;padding:12px 0 12px 20px;text-align:left;'><span style='float: left;padding: 0 5px 0 0;'><img src='http://shandongpass.com/mail/img/deposit_blut01.gif' alt='' align='absmiddle'></span>결제자 정보</th>			<td style='background-color:#f6f6f6;padding:12px 0 12px 20px;'>성명 : <br />이메일 : <br />연락처 : </td>		</tr>		<tr>			<th style='background-color:#dddddd;padding:12px 0 12px 20px;text-align:left;'><span style='float: left;padding: 0 5px 0 0;'><img src='http://shandongpass.com/mail/img/deposit_blut01.gif' alt='' align='absmiddle'></span>결제 방법</th>			<td style='background-color:#ededed;padding:12px 0 12px 20px;'>				<span style='float:left;color:#ad0101;margin-bottom:10px;'>* 결제는 반드시 년 월 일 까지 하셔야 하며, 그 이후에는 자동으로 취소됩니다.</span>				<div style='clear:both'>				<span style='float:left;height:30px;margin-right:5px;'>1. 현금입금 :</span> 국민은행 / 009901-04-099606 (주)알플레이<br />예약자와 입금자가 다를 경우 산동 패스로 알려주시기 바랍니다.				</div>				<div style='clear:both;margin-top:10px'>				<span style='float:left;margin-right:5px;'>2. 카드결제 :</span> <a href='http://www.shandongpass.com/member/login.asp?back_url=%2Fmypage%2Fmypage03%2Easp%3F'  style='color:#00a2ff;font-weight:bold;text-decoration:underline' target='_blank'>산동패스 홈페이지</a>에서 로그인 후 마이페이지에서 결제				</div>			</td>		</tr>		</tbody>	</table><br><br><table border='0' cellpadding=0 cellspacing=0 width=700><tr>	<td width=160 valign='top'><img src='http://shandongpass.com/images/logo.gif'/ width=150></td>	<td width=540 align=left><span style='font-size:11px;color:#888;font-family:돋움;line-height:135%'>		(주)알플레이 I 대표 : 류홍렬 I 사업자등록번호 : 122-86-23476 I 통신판매업신고번호 : 제2016-강원춘천-0102호  <br/> 예약문의 : <strong style='color:#e1980c'>1522-0159</strong> I 업무시간 : 평일 9:30 - 18:00 (주말,공휴일 휴무)  <br/> 옐로아이디 : <a href='http://goto.kakao.com/ii4mb72d' target='_blnak' style='color:#e1980c; font-size:11px; line-height:17px; font-weight:700; text-decoration:none;'> @산동패스 </a> <br/> Main Camp : 강원도 춘천시 서면 덕두원리 251-4 <br/> Seoul Camp : 서울특별시 서대문구 성산로 253-4 금송빌딩 4F <br/> 우리회사는 3천만원의 보증보험에 가입되어 있습니다.<br/><br/>Copyright © 2016 shandongpass.com All Rights Reserved. </span>	</td></tr></table></div></body></html>">
-
-<input name="submit" value="문자,sms 발송테스트" type="button" class="input_bu" style="width:170px;">
-</form>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+  				<form name="subscriptionForm" id="subscriptionForm" method="post" onsubmit="return false;" action="http://www.shandongpass.com/theDifferent/emailAndSms/email.asp" style="margin-top:3%;">
+					<input type="text" name="tomail" id="subscriptionMail" placeholder=" 이메일" class="section_email_box2_email">
+					<input type="button" id="subscription_btn" class="section_email_box2_button" value="구독"/>
+					
+					<input type="hidden" name="ip" id="ip" value="">
+					
+					<input type="hidden" name="action" value="go">
+					<input type="hidden" name="tidx" value="">
+					<!--<input type="hidden" name="tomail" value="">-->
+					<input type="hidden" name="wname" value="">
+					<input type="hidden" name="frommail" value="rplay@rplay.co.kr">
+					<input type="hidden" name="totel" value="">
+					<input type="hidden" name="msg" value="">
+					<input type="hidden" name="msg2" value="[더 디퍼런트 트레블] 구독 신청을 하셨습니다.">
+					<input type="hidden" name="mail_content" value="<!Doctype html>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='ko' xmlns:og='http://ogp.me/ns#' xmlns:fb='http://www.facebook.com/2008/fbml'>
+<head>
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<meta name='viewport' content='width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no'>
+<meta name='robots' content='all' />
+<meta name='robots' content='index,follow' />
+<meta name='description' content='더 디퍼런트 트래블(THE DIFFERENT TRAVEL) 알플레이에서 만든 독창적인 여행상품입니다.' />
+<meta name='keywords' content='the different travel, trip, rplay, 더 다른 여행, 더 다른 트래블, 독특한 여행' />
+<meta property='og:type' content='website'>
+<meta property='og:title' content='더 디퍼런트 트래블  | THE DIFFERENT TRAVEL'>
+<meta property='og:description' content='더 디퍼런트 트래블(THE DIFFERENT TRAVEL) 알플레이에서 만든 독창적인 여행상품입니다.'>
+<meta property='og:image' content='http://www.thedifferenttravel.com/thedifferent/img/the.png'>
+<meta property='og:url' content='http://www.thedifferenttravel.com/thedifferent/index.html'>
+<title>더 디퍼런트 트래블  | THE DIFFERENT TRAVEL</title>
+<!-- favicon부여 -->	
+<link rel='icon' href='http://www.thedifferenttravel.com/resource/img/the.ico' type='image/x-icon'>
+<!-- 스타일 시작-->
+<!-- fontawesome -->
+<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<!-- 웹브라우저 호환성 -->
+<link rel='stylesheet' href='http://www.thedifferenttravel.com/resource/css/normalize.css' />
+<link rel='stylesheet' href='http://www.thedifferenttravel.com/resource/css/main.css' />
+<!-- 폰트 -->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit'>
+<!-- 스타일 종료-->
+<style>
+* {
+  font-family: 'Kanit', Regular;
+}
+</style>
+</head>
+<body>
+<table align='center' width='100%' cellspacing='0' cellpadding='0' border='0' bgcolor='#ffffff' style='border-collapse:collapse'>
+  <tbody><tr><td>
+      <!--[if (gte mso 9)|(IE)]>
+      <table align='center' width='640' cellspacing='0' cellpadding='0' border='0' bgcolor='#ffffff' style='max-width:640px;margin:0 auto'>
+        <tbody><tr><td>
+      <![endif]-->
+      <table align='center' width='100%' cellspacing='0' cellpadding='0' border='0' bgcolor='#ffffff' style='max-width:640px;margin:0 auto'>
+        <tbody>
+        	<tr>
+        		<td width='100%' height='45' colspan='3' bgcolor='#ffffff'></td>
+        	</tr>
+        	<tr>
+        		<td width='6%' height='25' bgcolor='#ffffff'></td>
+        		<td width='88%' height='25' bgcolor='#ffffff'>
+        			<p style='font-weight:bold;font-size:25px;'>THE DIFFERENT TRAVEL</p>
+          		</td>
+          		<td width='6%' height='25' bgcolor='#ffffff'>
+          		</td>
+          	</tr>
+          	<tr>
+          		<td width='100%' height='45' colspan='3' bgcolor='#ffffff'></td>
+          	</tr>
+          	<tr>
+          		<td width='6%'></td>
+          		<td width='88%' style='font-size:18px;line-height:22px;font-family:Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'굴림',gulim;letter-spacing:-1px;color:#1e1e1e'>더 디퍼런트 트래블 구독신청을 하셨습니다.
+          		</td>
+          		<td width='6%'></td>
+          	</tr>
+          	<tr>
+          		<td width='100%' height='31' colspan='3'></td>
+          	</tr>
+          	<tr>
+          		<td width='6%'></td>
+          		<td width='88%'>
+    				<table width='100%' cellspacing='0' cellpadding='0' border='0' style='line-height:22px;font-family:Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'굴림',gulim;letter-spacing:-1px;color:#1e1e1e'>
+      					<tbody>
+      						<tr>
+      							<td width='100%' height='1' colspan='5' bgcolor='#bebebe'></td>
+      						</tr>
+      						<tr>
+      							<td width='100%' height='25' colspan='5'></td>
+      						</tr>
+      						<tr>
+      							<td width='3%'></td>
+      							<th align='left' colspan='1' rowspan='1' valign='top' width='22%' style='font-size:14px;font-weight:normal'>신청 이메일</th>
+      							<td width='2%'></td>
+      							<td valign='top' width='70%' style='font-size:14px;font-weight:bold;word-break:break-all'>tucksuyum@naver.com</td>
+      						<td width='3%'></td>
+	      					</tr>
+	      					<tr>
+	      						<td width='100%' height='8' colspan='5'></td>
+	      					</tr>
+	        				<tr>
+	        					<td width='100%' height='27' colspan='5'></td>
+	        				</tr>
+	        				<tr>
+	        					<td width='100%' height='1' colspan='5' bgcolor='#bebebe'></td>
+	        				</tr>
+	        			</tbody>
+    				</table>
+    			</td>	
+    			<td width='6%'></td>
+    		</tr>
+    		<tr>
+    			<td width='100%' height='25' colspan='3'></td>
+    		</tr>
+    		<tr>
+    			<td width='6%'></td>
+    			<td width='88%' style='font-size:14px;line-height:22px;font-family:Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'굴림',gulim;letter-spacing:-1px;color:#1e1e1e'>
+    				더 디퍼런트 트래블 구독 신청을 해주셔서 감사합니다.<br>그 어떤 여행과도 비교 할 수 없는 <span style='font-weight:bold;font-size:14px;'>THE DIFFERENT TRAVEL</span>을 기대해주세요.
+  				</td>
+  				<td width='6%'></td>
+  			</tr>
+  			<tr>
+  				<td width='100%' height='8' colspan='3'></td>
+  			</tr>
+  			<tr>
+  				<td width='6%'></td>
+  				<td width='88%' style='font-size:14px;line-height:22px;font-family:Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'굴림',gulim;letter-spacing:-1px;color:#1e1e1e'>
+  					매월 더 디퍼런트 트래블에서 만드는 여행소식과 상품으로 연락드리겠습니다.<br>
+  					감사합니다.
+  				</td>
+  				<td width='6%'></td>
+  			</tr>
+  			<tr>
+  				<td width='100%' height='58' colspan='3'></td>
+  			</tr>
+  			<tr>
+  				<td width='100%' height='1' colspan='3' bgcolor='#e6e6e6'></td>
+  			</tr>
+  			<tr>
+  				<td width='100%' height='16' colspan='3'></td>
+  			</tr>
+			<tr>
+				<td width='6%'></td>
+				<td width='88%' style='font-size:12px;line-height:18px;font-family:Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'돋움',Dotum;letter-spacing:-1px;color:#767676'>
+            	더 디퍼런트 트래블 관련하여 궁금한 점이 있으시면 
+            	<a href='mailto:alex@rplay.co.kr' target='_blank' style='color:#3c64e6;text-decoration:underline'>alex@rplay.co.kr</a>로 문의메일바랍니다.
+            	<br>
+            	Copyright © <a href='http://www.thedifferenttravel.com/' target='_blank' style='color:#767676;text-decoration:none'>The Different Travel</a>
+            	All rights reserved.
+          		</td>
+          		<td width='6%'></td>
+          	</tr>
+          	<tr>
+          		<td width='100%' height='18' colspan='3'></td>
+			</tr><!--[if (gte mso 9)|(IE)]></tbody>
+			</table></td></tr><![endif]-->
+		</tbody>
+      </table>
+    </td></tr>
+    <tr><td width='100%' height='100'></td></tr>
+    </tbody>
+</table>
+</body>
+</html>">
+				</form>				
   			</div>
 		</div>		
 	</section>
 	<!-- 스크롤1: 이메일입력구독 끝 -->
-	
-	
-	
-	<script>
-		$(function(){
-							
-		});
-	</script>
-	
 	
 	<!-- 스크롤2: 판매중인 상품페이지 시작-->
 	<section class="section section_detail">
@@ -435,25 +569,28 @@ input[type=submit], button {
 			2018년
 		</div>
 		<div class="section_detail_box1">
-			<a style="font-weight:bold;">1월</a>
-			<a style="">2월</a>
-			<a style="">3월</a>
+			<a style="font-weight:bold;">2월</a>
+			<!-- <a style="">2월</a>
+			<a style="">3월</a> -->
 		</div>
+		<!-- 
 		<div class="section_detail_box2_1">
-			<div class="section_detail_box2_item">이혼전<br>마누라<br>울려보기</div>
+			<div class="section_detail_box2_item">차가운!<br>화산섬<br>정복하기</div>
 			<div class="section_detail_box2_item">중국말<br>필요없이<br>중국여행가기</div>
 		</div>
 		<div class="section_detail_box2_2">
 			<div class="section_detail_box2_item">아빠랑<br>여행<br>가볼래?</div>
 			<div class="section_detail_box2_item">직장상사<br>몰래<br>떠나는 여행</div>
 		</div>
+		 -->
 		<div class="section_detail_box2_3">
-			<div class="section_detail_box2_item">이혼전<br>마누라<br>울려보기</div>
-			<div class="section_detail_box2_item">중국말<br>필요없이<br>중국여행가기</div>
+			<div class="section_detail_box2_item"><a href="./detail.html" style="text-decoration:none;color:black;line-height:2rem;">차가운!<br>화산섬<br>정복하기</a></div>
+			<!-- <div class="section_detail_box2_item">중국말<br>필요없이<br>중국여행가기</div>
 			<div class="section_detail_box2_item">아빠랑<br>여행<br>가볼래?</div>
 			<div class="section_detail_box2_item">직장상사<br>몰래<br>떠나는 여행</div>
+			 -->
 		</div>
-		<div class="section_detail_box3"><a>ARCHIVE<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></div>
+		<div class="section_detail_box3"><a>ARCHIVE(목록 준비중)<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></div>
 	</section>
 	<!-- 스크롤2: 판매중인 상품페이지 끝-->
 
@@ -466,9 +603,10 @@ input[type=submit], button {
 			</div>
 			<div class="section_footer_box2">
 				<div class="section_footer_box2_right1">
-					<a>FAQ</a>
+					<!-- <a>FAQ</a>
 					<a>개인정보취급방침</a>
 					<a>이용약관</a>
+					 -->
 				</div>
 				<div class="section_footer_box2_right2">
 					<p> (주)알플레이  I  대표 : 류홍렬  I  사업자등록번호 : 122-86-23476</p>
