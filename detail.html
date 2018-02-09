@@ -229,21 +229,23 @@ width:100%;
 <!-- ip 확인 -->
 <script type="text/javascript" src="http://jsgetip.appspot.com"></script>
 
+<!-- 쿠키 라이브러리 -->
+<script type="text/javascript" src="http://www.thedifferenttravel.com/resource/js/jquery.cookie.js"></script>
 <script>
 	$(function(){
 		
 		$("#ip").val(ip());
 		
 		//구독신청시 이메일 유효성 검사 시작
-		$('#subscription_btn').click(function(){
+		$('#reservation_btn').click(function(){
 			clickedEvent();
     	});
 		//구독신청시 이메일 유효성 검사 끝
 		
-		$("#subscription_btn").keyup(function(event) {
+		$("#reservation_btn").keyup(function(event) {
   			// Enter 처리
   			if (event.keyCode == '13') {
-    			//$("subscription_btn").trigger("click");
+    			//$("reservation_btn").trigger("click");
   				clickedEvent();
   			};
 		});
@@ -266,21 +268,21 @@ width:100%;
 	});
 
 	function clickedEvent(){
-		var subscriptionMail = $("#subscriptionMail");
-		//alert(subscriptionMail.val());
+		var reservationMail = $("#reservationMail");
+		//alert(reservationMail.val());
        	// 정규식 - 이메일 유효성 검사
        	var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
        	
-       	if( !subscriptionMail.val() ){
+       	if( !reservationMail.val() ){
            	alert('이메일주소를 입력 해 주세요');
-           	subscriptionMail.focus();
+           	reservationMail.focus();
            	return false;
            	
        	}else{
-           	if(!regEmail.test(subscriptionMail.val())) {
+           	if(!regEmail.test(reservationMail.val())) {
                	alert('이메일 주소가 유효하지 않습니다');
-               	subscriptionMail.val('');
-               	subscriptionMail.focus();
+               	reservationMail.val('');
+               	reservationMail.focus();
                	return false;
            	}
            	sendEmailAjax();
@@ -290,17 +292,44 @@ width:100%;
 	function sendEmailAjax(){
 	
 		//alert("sendEmailAjax 작동!");
-		var formData = $("#subscriptionForm").serialize();
-		var subscriptionMail = $("#subscriptionMail").val();
+		var reservationMail = $("#reservationMail").val();
+		$("#mail_content").val( $("#mail_form1").val() + reservationMail + $("#mail_form2").val() );
+		var formData = $("#reservationForm").serialize();
+		
+		var check1 = $.cookie('thediff_resemail');
+		
+		// 쿠키 없으면 쿠키생성
+		if( check1 == null){
+			
+			//  30일동안 등록함.
+			$.cookie('thediff_resemail', reservationMail, { expires: 30 });
+			$.post("http://www.shandongpass.com/theDifferent/res_emailAndSms/email.asp", formData);
+			alert("구독신청이 완료되었습니다.");
+		}
+		//쿠키 있으면
+		else{
+			
+			var cookie_value = $.cookie('thediff_resemail');
+			
+			if($("#reservationMail").val() == cookie_value){
+				alert("이미 구독신청하신 이메일입니다.");
+			}else {
+				$.post("http://www.shandongpass.com/theDifferent/res_emailAndSms/email.asp", formData);
+				alert("구독신청이 완료되었습니다.");
+				//쿠키 수정
+				$.cookie('thediff_resemail', reservationMail, { expires: 30 });
+			}
+		}
 		
 		//alert(formData);
-		//$.post("http://www.shandongpass.com/theDifferent/emailAndSms/email.asp", formData);
+		$("#reservationMail").val('');
+		$("#reservationMail").focus();
 		
-		$.ajax({
+		/*$.ajax({
 				url: "http://www.shandongpass.com/theDifferent/res_emailAndSms/email.asp",
 				type: "POST",
 				cache: false,
-				//data: subscriptionMail,
+				//data: reservationMail,
 				data: formData,
 			success: function(data){
 				//alert(data);
@@ -308,13 +337,13 @@ width:100%;
 				//alert(result);
 				if(data == '0'){
 					alert("예약신청이 완료되었습니다.");
-					subscriptionMail.val('');
-					subscriptionMail.focus();
+					$("#reservationMail").val('');
+					$("#reservationMail").focus();
 					return;
 				}else if(data == '1'){
 					alert("이미 예약신청하신 이메일입니다.");
-					subscriptionMail.val('');
-					subscriptionMail.focus();
+					$("#reservationMail").val('');
+					$("#reservationMail").focus();
 					return;
 				}				
 			},
@@ -323,6 +352,7 @@ width:100%;
 
 			}
 		});
+		*/
 
 	}	
 	
@@ -448,9 +478,9 @@ s.setAttribute('data-timestamp', +new Date());
 		
 		<div id="reservationBox" style="position:fixed; top:30%; left:35%; margin-top:3%; width: 50%; display:none;">
 			<i style="position:absolute; top:0; right:0; cursor:pointer;" id="closeBtn" class="fa fa-times fa-3x"></i>
-			<form name="subscriptionForm" id="subscriptionForm" method="post" onsubmit="return false;" action="http://www.shandongpass.com/theDifferent/res_emailAndSms/email.asp">
-				<input type="text" name="tomail" id="subscriptionMail" placeholder=" 이메일" style="margin-top:80px; border: 0px; line-height: 2.5; font-size: 20px; border-bottom: 0.5px solid; outline:none; background:rgba( 255, 255, 255, 0.5 ); width:60%;">
-				<input type="button" id="subscription_btn" value="예약하기" style="background-color:black; color:white; border:25px; line-height:2.5; width: 30%; cursor:pointer; margin:0; outline:none;"/>
+			<form name="reservationForm" id="reservationForm" method="post" onsubmit="return false;" action="http://www.shandongpass.com/theDifferent/res_emailAndSms/email.asp">
+				<input type="text" name="tomail" id="reservationMail" placeholder=" 이메일" style="margin-top:80px; border: 0px; line-height: 2.5; font-size: 20px; border-bottom: 0.5px solid; outline:none; background:rgba( 255, 255, 255, 0.5 ); width:60%;">
+				<input type="button" id="reservation_btn" value="예약하기" style="background-color:black; color:white; border:25px; line-height:2.5; width: 30%; cursor:pointer; margin:0; outline:none;"/>
 				
 				<input type="hidden" name="ip" id="ip" value="">
 				
@@ -462,7 +492,38 @@ s.setAttribute('data-timestamp', +new Date());
 				<input type="hidden" name="totel" value="">
 				<input type="hidden" name="msg" value="">
 				<input type="hidden" name="msg2" value="[더 디퍼런트 트레블] 예약 신청을 하셨습니다.">
-				<input type="hidden" name="mail_content" value="<!Doctype html>
+				<input type="hidden" name="mail_content" id="mail_content" value="">
+			</form>
+		</div>
+	
+	
+		<footer class="footer" style="margin-top: 2% border-top: 1px solid #dbdbdb;">
+			<div  style="display:flex; align-items:center; justify-content:center;">
+				<div style="margin-right:3%; margin-left:15%;">
+					<p class="detail_foot_left_box1" style="font-weight: bold;">THE DIFFERENT TRAVEL</p>
+					<h6 class="detail_foot_left_box2" style="text-align:center;">알플레이에서 만든 여행사이트입니다.</h6>
+				</div>
+				<div class="pc_footer" style="width:47%;">
+					<div style="">
+						<!-- 
+						<a class="detail_foot_link" style="margin-right: 1%; color:black; text-decoration:none; cursor:pointer;">FAQ</a>
+						<a class="detail_foot_link" style="margin-right: 1%; color:black; text-decoration:none; cursor:pointer;">개인정보취급방침</a>
+						<a class="detail_foot_link" style="margin-right: 1%; color:black; text-decoration:none; cursor:pointer;">이용약관</a>
+						 -->
+					</div>
+					<div class="detail_foot_right_box" style="line-height: 50%; margin-top: 5%;">
+						<p><span class="b">(주)알플레이</span>  I  대표 : 류홍렬  I  사업자등록번호 : 122-86-23476  I  통신판매업신고번호 : 제2016-강원춘천-0102호</p>
+						<p> Main Camp : 강원도 춘천시 서면 덕두원길 108-27 RPlay B/D</p>
+						<p> Seoul Camp : 서울특별시 서대문구 성산로 253-4 금송빌딩 4F</p>
+						<p> 우리회사는 3천만원의 보증보험에 가입되어 있습니다.</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- 메일양식 -->
+	<!-- 메일 양식 -->
+	<input type="hidden" id="mail_form1" value="<!Doctype html>
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='ko' xmlns:og='http://ogp.me/ns#' xmlns:fb='http://www.facebook.com/2008/fbml'>
 <head>
 <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
@@ -541,7 +602,8 @@ s.setAttribute('data-timestamp', +new Date());
       							<td width='3%'></td>
       							<th align='left' colspan='1' rowspan='1' valign='top' width='22%' style='font-size:14px;font-weight:normal'>예약 메일</th>
       							<td width='2%'></td>
-      							<td valign='top' width='70%' style='font-size:14px;font-weight:bold;word-break:break-all'>alex@rplay.co.kr</td>
+      							<td valign='top' width='70%' style='font-size:14px;font-weight:bold;word-break:break-all'>">
+	<input type="hidden" id="mail_form2" value="</td>
       							<td height='30'></td>
       						</tr>
       						<tr>
@@ -618,33 +680,5 @@ s.setAttribute('data-timestamp', +new Date());
 </table>
 </body>
 </html>">
-			</form>
-		</div>
-	
-	
-		<footer class="footer" style="margin-top: 2% border-top: 1px solid #dbdbdb;">
-			<div  style="display:flex; align-items:center; justify-content:center;">
-				<div style="margin-right:3%; margin-left:15%;">
-					<p class="detail_foot_left_box1" style="font-weight: bold;">THE DIFFERENT TRAVEL</p>
-					<h6 class="detail_foot_left_box2" style="text-align:center;">알플레이에서 만든 여행사이트입니다.</h6>
-				</div>
-				<div class="pc_footer" style="width:47%;">
-					<div style="">
-						<!-- 
-						<a class="detail_foot_link" style="margin-right: 1%; color:black; text-decoration:none; cursor:pointer;">FAQ</a>
-						<a class="detail_foot_link" style="margin-right: 1%; color:black; text-decoration:none; cursor:pointer;">개인정보취급방침</a>
-						<a class="detail_foot_link" style="margin-right: 1%; color:black; text-decoration:none; cursor:pointer;">이용약관</a>
-						 -->
-					</div>
-					<div class="detail_foot_right_box" style="line-height: 50%; margin-top: 5%;">
-						<p><span class="b">(주)알플레이</span>  I  대표 : 류홍렬  I  사업자등록번호 : 122-86-23476  I  통신판매업신고번호 : 제2016-강원춘천-0102호</p>
-						<p> Main Camp : 강원도 춘천시 서면 덕두원길 108-27 RPlay B/D</p>
-						<p> Seoul Camp : 서울특별시 서대문구 성산로 253-4 금송빌딩 4F</p>
-						<p> 우리회사는 3천만원의 보증보험에 가입되어 있습니다.</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-	</div>
 </body>
 </html>
