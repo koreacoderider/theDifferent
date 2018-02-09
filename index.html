@@ -303,6 +303,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
 <script type="text/javascript" src="http://www.thedifferenttravel.com/resource/js/jquery.cookie.js"></script>
 <script>
 	$(function(){
+		
+		if( navigator.userAgent.toLowerCase().indexOf("chrome") < 0)
+			alert("크로스브라우징 문제로 인해 크롬브라우저 접속을 권장드립니다.");
+		
 		//alert("시작!");
 		//alert(ip());
 		$("#ip").val(ip());
