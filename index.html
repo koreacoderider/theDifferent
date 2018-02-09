@@ -299,7 +299,8 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
 <!-- jquery 플러그인 끝-->
 <!-- ip 확인 -->
 <script type="text/javascript" src="http://jsgetip.appspot.com"></script>
-
+<!-- 쿠키 라이브러리 -->
+<script type="text/javascript" src="http://www.thedifferenttravel.com/resource/js/jquery.cookie.js"></script>
 <script>
 	$(function(){
 		//alert("시작!");
@@ -345,15 +346,44 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
        	}
 	}
 	
+	//  180209 alex: ajax했는데, 크로스 도메인때문에 post방식으로 바꿈.
 	function sendEmailAjax(){
 	
 		//alert("sendEmailAjax 작동!");
-		var formData = $("#subscriptionForm").serialize();
 		var subscriptionMail = $("#subscriptionMail").val();
+		$("#mail_content").val( $("#mail_form1").val() + subscriptionMail + $("#mail_form2").val() );
+		
+		var formData = $("#subscriptionForm").serialize();
+		
+		var check1 = $.cookie('thediff_subemail');
+		
+		// 쿠키 없으면 쿠키생성
+		if( check1 == null){
+			
+			//  30일동안 등록함.
+			$.cookie('thediff_subemail', subscriptionMail, { expires: 30 });
+			$.post("http://www.shandongpass.com/theDifferent/emailAndSms/email.asp", formData);
+			alert("구독신청이 완료되었습니다.");
+		}
+		//쿠키 있으면
+		else{
+			
+			var cookie_value = $.cookie('thediff_subemail');
+			
+			if($("#subscriptionMail").val() == cookie_value){
+				alert("이미 구독신청하신 이메일입니다.");
+			}else {
+				$.post("http://www.shandongpass.com/theDifferent/emailAndSms/email.asp", formData);
+				alert("구독신청이 완료되었습니다.");
+				//쿠키 수정
+				$.cookie('thediff_subemail', subscriptionMail, { expires: 30 });
+			}
+		}
 		
 		//alert(formData);
-		//$.post("http://www.shandongpass.com/theDifferent/emailAndSms/email.asp", formData);
-		
+		$("#subscriptionMail").val('');
+		$("#subscriptionMail").focus();
+		/*
 		$.ajax({
 				url: "http://www.shandongpass.com/theDifferent/emailAndSms/email.asp",
 				type: "POST",
@@ -366,13 +396,13 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
 				//alert(result);
 				if(data == '0'){
 					alert("구독신청이 완료되었습니다.");
-					subscriptionMail.val('');
-					subscriptionMail.focus();
+					$("#subscriptionMail").val('');
+					$("#subscriptionMail").focus();
 					return;
 				}else if(data == '1'){
 					alert("이미 구독신청하신 이메일입니다.");
-					subscriptionMail.val('');
-					subscriptionMail.focus();
+					$("#subscriptionMail").val('');
+					$("#subscriptionMail").focus();
 					return;
 				}				
 			},
@@ -381,6 +411,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
 
 			}
 		});
+		*/
 
 	}		
 </script>
@@ -408,7 +439,73 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
 					<input type="hidden" name="totel" value="">
 					<input type="hidden" name="msg" value="">
 					<input type="hidden" name="msg2" value="[더 디퍼런트 트레블] 구독 신청을 하셨습니다.">
-					<input type="hidden" name="mail_content" value="<!Doctype html>
+					<input type="hidden" name="mail_content" id="mail_content" value="">
+				</form>				
+  			</div>
+		</div>		
+	</section>
+	<!-- 스크롤1: 이메일입력구독 끝 -->
+	
+	<!-- 스크롤2: 판매중인 상품페이지 시작-->
+	<section class="section section_detail">
+		<div class="section_year">
+			2018년
+		</div>
+		<div class="section_detail_box1">
+			<a style="font-weight:bold;">2월</a>
+			<!-- <a style="">2월</a>
+			<a style="">3월</a> -->
+		</div>
+		<!-- 
+		<div class="section_detail_box2_1">
+			<div class="section_detail_box2_item">차가운!<br>화산섬<br>정복하기</div>
+			<div class="section_detail_box2_item">중국말<br>필요없이<br>중국여행가기</div>
+		</div>
+		<div class="section_detail_box2_2">
+			<div class="section_detail_box2_item">아빠랑<br>여행<br>가볼래?</div>
+			<div class="section_detail_box2_item">직장상사<br>몰래<br>떠나는 여행</div>
+		</div>
+		 -->
+		<div class="section_detail_box2_3">
+			<div class="section_detail_box2_item"><a href="./detail.html" style="text-decoration:none;color:black;line-height:2rem;">차가운!<br>화산섬<br>정복하기</a></div>
+			<!-- <div class="section_detail_box2_item">중국말<br>필요없이<br>중국여행가기</div>
+			<div class="section_detail_box2_item">아빠랑<br>여행<br>가볼래?</div>
+			<div class="section_detail_box2_item">직장상사<br>몰래<br>떠나는 여행</div>
+			 -->
+		</div>
+		<div class="section_detail_box3"><a>ARCHIVE(목록 준비중)<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></div>
+	</section>
+	<!-- 스크롤2: 판매중인 상품페이지 끝-->
+
+	<!-- 스크롤3: 소개 -->
+	<section class="section">
+		<div class="section_footer">
+			<div class="section_footer_box1">
+				<p class="section_footer_box1_left1">THE DIFFERENT TRAVEL</p>
+				<p class="section_footer_box1_left2">알플레이에서 만든 여행사이트입니다.</p>
+			</div>
+			<div class="section_footer_box2">
+				<div class="section_footer_box2_right1">
+					<!-- <a>FAQ</a>
+					<a>개인정보취급방침</a>
+					<a>이용약관</a>
+					 -->
+				</div>
+				<div class="section_footer_box2_right2">
+					<p> (주)알플레이  I  대표 : 류홍렬  I  사업자등록번호 : 122-86-23476</p>
+					<p> 통신판매업신고번호 : 제2016-강원춘천-0102호</p>
+					<p> Main Camp : 강원도 춘천시 서면 덕두원길 108-27 RPlay B/D</p>
+					<p> Seoul Camp : 서울특별시 서대문구 성산로 253-4 금송빌딩 4F</p>
+					<p> 우리회사는 3천만원의 보증보험에 가입되어 있습니다.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 스크롤3: 끝 -->
+</div>
+<!-- #fullpage 끝-->
+<!-- 메일 양식 -->
+<input type="hidden" id="mail_form1" value="<!Doctype html>
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='ko' xmlns:og='http://ogp.me/ns#' xmlns:fb='http://www.facebook.com/2008/fbml'>
 <head>
 <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
@@ -487,7 +584,8 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
       							<td width='3%'></td>
       							<th align='left' colspan='1' rowspan='1' valign='top' width='22%' style='font-size:14px;font-weight:normal'>신청 이메일</th>
       							<td width='2%'></td>
-      							<td valign='top' width='70%' style='font-size:14px;font-weight:bold;word-break:break-all'>tucksuyum@naver.com</td>
+      							<td valign='top' width='70%' style='font-size:14px;font-weight:bold;word-break:break-all'>">
+<input type="hidden" id="mail_form2" value="</td>
       						<td width='3%'></td>
 	      					</tr>
 	      					<tr>
@@ -557,69 +655,5 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill  {
 </table>
 </body>
 </html>">
-				</form>				
-  			</div>
-		</div>		
-	</section>
-	<!-- 스크롤1: 이메일입력구독 끝 -->
-	
-	<!-- 스크롤2: 판매중인 상품페이지 시작-->
-	<section class="section section_detail">
-		<div class="section_year">
-			2018년
-		</div>
-		<div class="section_detail_box1">
-			<a style="font-weight:bold;">2월</a>
-			<!-- <a style="">2월</a>
-			<a style="">3월</a> -->
-		</div>
-		<!-- 
-		<div class="section_detail_box2_1">
-			<div class="section_detail_box2_item">차가운!<br>화산섬<br>정복하기</div>
-			<div class="section_detail_box2_item">중국말<br>필요없이<br>중국여행가기</div>
-		</div>
-		<div class="section_detail_box2_2">
-			<div class="section_detail_box2_item">아빠랑<br>여행<br>가볼래?</div>
-			<div class="section_detail_box2_item">직장상사<br>몰래<br>떠나는 여행</div>
-		</div>
-		 -->
-		<div class="section_detail_box2_3">
-			<div class="section_detail_box2_item"><a href="./detail.html" style="text-decoration:none;color:black;line-height:2rem;">차가운!<br>화산섬<br>정복하기</a></div>
-			<!-- <div class="section_detail_box2_item">중국말<br>필요없이<br>중국여행가기</div>
-			<div class="section_detail_box2_item">아빠랑<br>여행<br>가볼래?</div>
-			<div class="section_detail_box2_item">직장상사<br>몰래<br>떠나는 여행</div>
-			 -->
-		</div>
-		<div class="section_detail_box3"><a>ARCHIVE(목록 준비중)<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></div>
-	</section>
-	<!-- 스크롤2: 판매중인 상품페이지 끝-->
-
-	<!-- 스크롤3: 소개 -->
-	<section class="section">
-		<div class="section_footer">
-			<div class="section_footer_box1">
-				<p class="section_footer_box1_left1">THE DIFFERENT TRAVEL</p>
-				<p class="section_footer_box1_left2">알플레이에서 만든 여행사이트입니다.</p>
-			</div>
-			<div class="section_footer_box2">
-				<div class="section_footer_box2_right1">
-					<!-- <a>FAQ</a>
-					<a>개인정보취급방침</a>
-					<a>이용약관</a>
-					 -->
-				</div>
-				<div class="section_footer_box2_right2">
-					<p> (주)알플레이  I  대표 : 류홍렬  I  사업자등록번호 : 122-86-23476</p>
-					<p> 통신판매업신고번호 : 제2016-강원춘천-0102호</p>
-					<p> Main Camp : 강원도 춘천시 서면 덕두원길 108-27 RPlay B/D</p>
-					<p> Seoul Camp : 서울특별시 서대문구 성산로 253-4 금송빌딩 4F</p>
-					<p> 우리회사는 3천만원의 보증보험에 가입되어 있습니다.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- 스크롤3: 끝 -->
-</div>
-<!-- #fullpage 끝-->
 </body>
 </html>
