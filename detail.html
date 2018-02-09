@@ -304,7 +304,7 @@ width:100%;
 			//  30일동안 등록함.
 			$.cookie('thediff_resemail', reservationMail, { expires: 30 });
 			$.post("http://www.shandongpass.com/theDifferent/res_emailAndSms/email.asp", formData);
-			alert("구독신청이 완료되었습니다.");
+			alert("예약신청이 완료되었습니다.");
 		}
 		//쿠키 있으면
 		else{
@@ -312,10 +312,10 @@ width:100%;
 			var cookie_value = $.cookie('thediff_resemail');
 			
 			if($("#reservationMail").val() == cookie_value){
-				alert("이미 구독신청하신 이메일입니다.");
+				alert("이미 예약신청하신 이메일입니다.");
 			}else {
 				$.post("http://www.shandongpass.com/theDifferent/res_emailAndSms/email.asp", formData);
-				alert("구독신청이 완료되었습니다.");
+				alert("예약신청이 완료되었습니다.");
 				//쿠키 수정
 				$.cookie('thediff_resemail', reservationMail, { expires: 30 });
 			}
@@ -580,7 +580,7 @@ s.setAttribute('data-timestamp', +new Date());
           	</tr>
           	<tr>
           		<td width='6%'></td>
-          		<td width='88%' style='font-size:18px;line-height:22px;font-family:Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'굴림',gulim;letter-spacing:-1px;color:#1e1e1e'>더 디퍼런트 트래블 구독신청을 하셨습니다.
+          		<td width='88%' style='font-size:18px;line-height:22px;font-family:Apple SD Gothic Neo,sans-serif,'맑은고딕',Malgun Gothic,'굴림',gulim;letter-spacing:-1px;color:#1e1e1e'>더 디퍼런트 트래블 예약신청을 하셨습니다.
           		</td>
           		<td width='6%'></td>
           	</tr>
