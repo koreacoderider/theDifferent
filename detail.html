@@ -234,6 +234,9 @@ width:100%;
 <script>
 	$(function(){
 		
+		if( navigator.userAgent.toLowerCase().indexOf("chrome") < 0)
+			alert("크로스브라우징 문제로 인해 크롬브라우저 접속을 권장드립니다.");
+		
 		$("#ip").val(ip());
 		
 		//구독신청시 이메일 유효성 검사 시작
